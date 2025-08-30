@@ -56,22 +56,64 @@ void armstrong_no(int n){
 }
 
 void print_all_divisors(int n){
-    for(int i=1;i<=n;i++){
+    vector<int>ls;
+    for(int i=1;i*i<=n;i++){
         if(n%i==0){
-            cout<<i<<endl;
+            ls.push_back(i);
+            if((n/i)!=i){
+                ls.push_back(n/i);
+            }
         }
 
     }
+    sort(ls.begin(),ls.end());
+    for(auto it : ls)cout<<it<<" ";
 }
+
+void check_prime(int n){
+    int cnt = 0;
+    for(int i =1;i*i<=n;i++){
+        if(n%i==0){
+            cnt++;
+            if((n/i)!= i){
+            cnt++;
+            }
+    }
+}
+    if(cnt==2){
+        cout<<"Its a prime number";
+    }
+    else{
+        cout<<"Its not a prime number";
+    }
+
+}
+
+void gcd(int a, int b) {
+    while (a > 0 && b > 0) {
+        if (a > b)
+            a = a % b;
+        else
+            b = b % a;
+    }
+
+    if (a == 0)
+        cout << b;
+    else
+        cout << a;
+}
+
 int main(){
 int n;
-cout<<"Enter the number to count the digits"<<endl;
+cout<<"Enter the number"<<endl;
 cin>>n;
 // cout<<count_digits(n);
 // cout<<reverse_digits(n);
 // palindrome(n);
 // armstrong_no(n);
-print_all_divisors(n);
+// print_all_divisors(n);
+// check_prime(n);
+// gcd(20,40);
 return 0;
 }
 
