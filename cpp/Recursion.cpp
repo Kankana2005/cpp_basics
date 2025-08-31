@@ -59,11 +59,29 @@ int fact(int n){
     return n*fact(n-1);     
 }
 
+void rev_array(int arr[], int l, int r) {
+    if (l >= r) return;              // base case
+
+    swap(arr[l], arr[r]);            // swap elements
+    rev_array(arr, l + 1, r - 1);    // recursive call
+}
+
 
 int main(){
     int n;
     cout<<"Enter the number: ";
     cin>>n;
+
+
+    //initializing an array
+    int arr[n];   // array of size n
+
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+
     // print_n_times(1,n);
     // print_one_to_n(1,n);
     // print_n_to_one(n,n);
@@ -71,6 +89,8 @@ int main(){
     // print_nto1_BackTracking(1,n);
     // SumOf_n_no(n,0);
     // cout<<Sum_Of_n_nos(n);
-    cout<<fact(n);
+    // cout<<fact(n);
+    cout<<rev_array(0,arr[n]);
+
     return 0;
 }
