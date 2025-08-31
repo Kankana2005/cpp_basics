@@ -59,27 +59,45 @@ int fact(int n){
     return n*fact(n-1);     
 }
 
-void rev_array(int arr[], int l, int r) {
-    if (l >= r) return;              // base case
+void rev_array(int arr[], int l, int n) {
+    if (l >= n) return;              // base case
 
-    swap(arr[l], arr[r]);            // swap elements
-    rev_array(arr, l + 1, r - 1);    // recursive call
+    swap(arr[l], arr[n]);            // swap elements
+    rev_array(arr, l + 1, n - 1);    // recursive call
+}
+
+void rev_arr_1pointer(int arr[],int i,int n){
+    if(i>=n/2)
+        return;
+    swap(arr[i],arr[n-i-1]);    
+    rev_arr_1pointer(arr,i+1,n);    
+
+}
+
+bool check_palindrome(string n,int i){
+    if(i>=n.size()/2) return true;
+    if (n[i] != n[n.size()-i-1])
+        return false;
+    return check_palindrome(n,i+1);
+
+
 }
 
 
 int main(){
     int n;
+    // string n;
     cout<<"Enter the number: ";
     cin>>n;
 
 
     //initializing an array
-    int arr[n];   // array of size n
+    // int arr[n];   // array of size n
 
-    cout << "Enter " << n << " elements: ";
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+    // cout << "Enter " << n << " elements: ";
+    // for (int i = 0; i < n; i++) {
+    //     cin >> arr[i];
+    // }
 
 
     // print_n_times(1,n);
@@ -90,7 +108,18 @@ int main(){
     // SumOf_n_no(n,0);
     // cout<<Sum_Of_n_nos(n);
     // cout<<fact(n);
-    cout<<rev_array(0,arr[n]);
+
+    // cout << "Reversed array: ";
+    // for (int i = 0; i < n; i++) {
+    //     cout << arr[i] << " ";
+    // }
+    // cout << endl;
+
+    // if (check_palindrome(n, 0))
+    //     cout << "Palindrome";
+    // else
+    //     cout << "Not Palindrome";
+
 
     return 0;
 }

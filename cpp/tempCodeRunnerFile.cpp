@@ -1,1 +1,2 @@
-cout<<"Enter the number to count the digits"<<endl;
+
+// void rev_array(int arr[], int l, int n) {
