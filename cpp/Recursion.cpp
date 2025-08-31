@@ -36,6 +36,30 @@ void print_nto1_BackTracking(int i , int n){
     cout<<i<<" ";
 }
 
+//Parameterized way
+void SumOf_n_no(int i , int sum){
+    if(i<1){
+        cout<<sum;
+        return;
+    }    
+    SumOf_n_no(i-1,sum+i);   
+    
+}
+
+//functional method
+int Sum_Of_n_nos(int n){
+    if(n==0)
+        return 1;   
+    return n+Sum_Of_n_nos(n-1);     
+}
+
+int fact(int n){
+    if(n==0)
+        return 1;   
+    return n*fact(n-1);     
+}
+
+
 int main(){
     int n;
     cout<<"Enter the number: ";
@@ -45,5 +69,8 @@ int main(){
     // print_n_to_one(n,n);
     // print_1ton_BackTracking(n,n);
     // print_nto1_BackTracking(1,n);
+    // SumOf_n_no(n,0);
+    // cout<<Sum_Of_n_nos(n);
+    cout<<fact(n);
     return 0;
 }
