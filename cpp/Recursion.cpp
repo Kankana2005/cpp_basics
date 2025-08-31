@@ -79,10 +79,13 @@ bool check_palindrome(string n,int i){
     if (n[i] != n[n.size()-i-1])
         return false;
     return check_palindrome(n,i+1);
-
-
 }
 
+int fib(int n){
+    if(n<=1)
+        return n;
+    return fib(n-1)+fib(n-2);    
+}
 
 int main(){
     int n;
@@ -119,6 +122,8 @@ int main(){
     //     cout << "Palindrome";
     // else
     //     cout << "Not Palindrome";
+
+    cout<<fib(n);
 
 
     return 0;
