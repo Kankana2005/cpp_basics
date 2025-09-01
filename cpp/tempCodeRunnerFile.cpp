@@ -1,2 +1,2 @@
-
-// void rev_array(int arr[], int l, int n) {
+ // cout<<"Enter the number: ";
+    // cin>>n;

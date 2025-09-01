@@ -87,11 +87,30 @@ int fib(int n){
     return fib(n-1)+fib(n-2);    
 }
 
+void print_all_subsequences(int ind,vector<int> &ds , int arr[],int n){
+    if(ind==n){
+        for(auto it : ds){
+            cout<<it<<" ";
+        }
+        if(ds.size() == 0){
+            cout<<"{}";
+        }
+        cout<<endl;
+        return;
+    }
+    ds.push_back(arr[ind]);
+    print_all_subsequences(ind+1,ds,arr,n);
+    ds.pop_back();
+
+    print_all_subsequences(ind+1,ds,arr,n);
+
+}
+
 int main(){
-    int n;
+    // int n;
     // string n;
-    cout<<"Enter the number: ";
-    cin>>n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
 
 
     //initializing an array
@@ -123,7 +142,15 @@ int main(){
     // else
     //     cout << "Not Palindrome";
 
-    cout<<fib(n);
+     // cout<<fib(n);
+
+    //printing all the subsequences:
+    int arr[] = {3,1,2};
+    int n = 3;
+    vector<int>ds;
+    print_all_subsequences(0,ds,arr,n);
+
+
 
 
     return 0;
